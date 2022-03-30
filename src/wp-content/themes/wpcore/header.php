@@ -11,7 +11,10 @@
 <body <?php body_class(); ?>>
   <div id="page">
     <header id="header" class="header-section">
-      <h1 class="text-center">Header Core</h1>
+      <?php
+      $title = get_field('general_title', op('site-settings'));
+      ?>
+      <h1 class="text-center">Header Core <?php echo $title; ?></h1>
     </header>
 
     <div id="content">
