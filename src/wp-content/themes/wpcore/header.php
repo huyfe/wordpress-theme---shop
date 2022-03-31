@@ -20,7 +20,7 @@
         $size = 'full';
         echo wp_get_attachment_image($logo, $size, '', array('class' => 'img-fluid header-logo'));
         ?>
-        <h1 class="text-center ml-3">Header <?php echo $title; ?></h1>
+        <h1 class="text-center ml-3 font-weight-bold">Header <?php echo $title; ?></h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

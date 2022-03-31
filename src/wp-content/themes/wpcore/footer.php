@@ -70,6 +70,9 @@
           <div class="privacy-box">Privacy Policy . Terms and conditions</div>
         </div>
         <div class="col-auto">
+          <div class="author">@ Copyright Huy Dev</div>
+        </div>
+        <div class="col-auto">
           <div class="social-media-box">Dribbble . Behance . Instagram</div>
         </div>
       </div>
