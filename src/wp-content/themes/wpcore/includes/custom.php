@@ -11,7 +11,11 @@ function huydev_scripts()
     wp_enqueue_style('main-style-css', THEME_URL . '/assets/main/main.css', array(), $version, 'screen');
 
     // Load JS
-    wp_enqueue_script('main-scripts-js', THEME_URL . '/assets/main/main.js', array('jquery'), $version, true);
+    wp_enqueue_script('main-scripts-js', get_stylesheet_directory_uri() . '/assets/main/main.js', array('jquery'), $version, true);
+    wp_enqueue_script('script',  get_stylesheet_directory_uri() . '/assets/main/main.js');
+
+    // wp_enqueue_script('ajax', THEME_URL . '/assets/js/ajax.js', array('jquery'), $version, true);
+    // wp_localize_script('ajax', 'ajax_var', array('url' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'huydev_scripts');
 
@@ -82,22 +86,22 @@ function add_site_settings_to_menu()
 add_action('admin_menu', 'add_site_settings_to_menu');
 
 // Change the active menu item
-add_filter('parent_file', 'higlight_custom_settings_page');
+// add_filter('parent_file', 'higlight_custom_settings_page');
 
-function higlight_custom_settings_page($file)
-{
-    global $parent_file;
-    global $pagenow;
-    global $typenow, $self;
+// function higlight_custom_settings_page($file)
+// {
+//     global $parent_file;
+//     global $pagenow;
+//     global $typenow, $self;
 
-    $settings_page = get_page_by_path("site-settings", NULL, "page")->ID;
+//     $settings_page = get_page_by_path("site-settings", NULL, "page")->ID;
 
-    $post = (int)$_GET["post"];
-    if ($pagenow === "post.php" && $post === $settings_page) {
-        $file = "post.php?post=$settings_page&action=edit";
-    }
-    return $file;
-}
+//     $post = (int)$_GET["post"];
+//     if ($pagenow === "post.php" && $post === $settings_page) {
+//         $file = "post.php?post=$settings_page&action=edit";
+//     }
+//     return $file;
+// }
 function edit_site_settings_title()
 {
     global $post, $title, $action, $current_screen;
@@ -118,3 +122,7 @@ function op($slug) // Fake string options to op('site-settings) in get_field met
 /**
  * End fake site setting
  */
+
+
+// Remove margin top 32px of wordpress admin bar
+add_theme_support('admin-bar', array('callback' => '__return_false'));

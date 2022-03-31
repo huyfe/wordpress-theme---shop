@@ -1,0 +1,73 @@
+main#landingPage {
+    min-height: calc(100vh - 100px);
+    height: 2000px;
+
+    .section-hero {
+        background-color: rgba($black, 0.5);
+
+        &__top {
+            .wrapper {
+                padding: 30px;
+            }
+            h1 {
+                line-height: 48px;
+                font-weight: 600;
+                color: $yellow;
+                margin-bottom: 20px;
+            }
+            h2 {
+                line-height: 42px;
+                font-weight: 600;
+                color: $yellow;
+                margin-bottom: 20px;
+            }
+            p {
+                color: $white;
+                margin-bottom: 20px;
+                line-height: 26px;
+            }
+        }
+        &__bottom {
+            padding: 20px 0;
+            background-color: $yellow;
+            .content__center {
+                span {
+                    font-size: 38px;
+                    color: $white;
+                }
+                h3 {
+                    text-transform: uppercase;
+                    line-height: 34.5px;
+                }
+                h5 {
+                    color: $red;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .section-method-borrow {
+    }
+
+    .section-method-borrow {
+    }
+
+    .section-condition-borrow {
+    }
+
+    .section-other-method-borrow {
+    }
+
+    .section-why-choose-me {
+    }
+
+    .section-news {
+    }
+
+    .section-policy-borrow {
+    }
+
+    .section-contact {
+    }
+}

@@ -1,0 +1,41 @@
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}
+
+$fs-32: 32px;
+$fs-28: 28px;
+$fs-24: 24px;
+$fs-23: 23px;
+$fs-21: 21px;
+$fs-20: 20px;
+$fs-18: 18px;
+$fs-16: 16px;
+$fs-14: 14px;
+
+h1 {
+    font-size: $fs-32;
+}
+h2 {
+    font-size: $fs-28;
+}
+h3 {
+    font-size: $fs-23;
+}
+h4 {
+    font-size: $fs-21;
+}
+h5 {
+    font-size: $fs-20;
+}
+h6 {
+    font-size: $fs-18;
+}
+p {
+    font-size: 14px;
+}
+
+.text-white {
+    color: $white;
+}

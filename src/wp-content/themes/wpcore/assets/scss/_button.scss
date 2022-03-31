@@ -1,0 +1,64 @@
+.btn {
+    display: inline-block;
+    outline: none;
+    box-shadow: none;
+
+    transition: all 0.25s;
+
+    padding: 0.5em 1em;
+    padding-top: 0.6em;
+    white-space: nowrap;
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    &.btn-primary {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.65;
+
+        border: 3px solid $red;
+        color: $red;
+        background-color: transparent;
+        border-radius: 2px;
+
+        cursor: pointer;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $red !important;
+            background-color: $white !important;
+            border-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        span {
+        }
+    }
+
+    &.btn-rounded {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.65;
+
+        border: none;
+        border-radius: 30px;
+
+        color: $white;
+        background-color: $red-dark;
+
+        cursor: pointer;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $black !important;
+            background-color: $white !important;
+            box-shadow: none !important;
+        }
+    }
+}

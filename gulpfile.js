@@ -9,8 +9,8 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 var sassFolder = [
-    'src/wp-content/themes/' + nameFolderTheme + '/assets/scss/**/*.scss',
     'src/wp-content/themes/' + nameFolderTheme + '/assets/css/**/*.css',
+    'src/wp-content/themes/' + nameFolderTheme + '/assets/scss/**/*.scss',
 ];
 
 gulp.task('sass', function () {
@@ -35,7 +35,7 @@ var uglify = require('gulp-uglify');
 var remember = require('gulp-remember');
 var cached = require('gulp-cached');
 var jsFolder = [
-    // 'src/wp-content/themes/' + nameFolderTheme + '/assets/lib/**/*.js',
+    'src/wp-content/themes/' + nameFolderTheme + '/assets/lib/**/*.js',
     'src/wp-content/themes/' + nameFolderTheme + '/assets/js/**/*.js',
 ];
 
