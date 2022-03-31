@@ -6,3 +6,7 @@
 @import "templates/landing-page.scss";
 @import "custom.scss";
 @import "button.scss";
+
+main {
+    min-height: calc(100vh - 97.6px - 200px);
+}

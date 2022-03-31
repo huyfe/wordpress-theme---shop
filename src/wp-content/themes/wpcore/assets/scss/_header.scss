@@ -3,4 +3,16 @@ header#header {
     top: 0;
     height: 90px;
     z-index: 9999;
+
+    .navbar {
+        background-color: #fa8bff;
+        background-image: linear-gradient(45deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
+        &.navbar-light .navbar-nav .nav-link {
+            color: white;
+        }
+    }
+    .header-logo {
+        width: auto;
+        max-height: 70px;
+    }
 }
