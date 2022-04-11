@@ -58,70 +58,60 @@ if (function_exists('acf_add_options_page')) {
 }
 
 
-/**
- * Fake site settings option page of acf pro version
- */
-function hide_settings_page($query)
+// Local JSON acf
+add_filter('acf/settings/save_json', 'my_acf_json_save_point');
+function my_acf_json_save_point($path)
 {
-    if (!is_admin() && !$query->is_main_query()) {
-        return;
+    $theme_dir = get_stylesheet_directory();
+    // Create our directory if it doesn't exist.
+    if (!is_dir($theme_dir .= '/acf-field')) {
+        mkdir($theme_dir, 0755);
     }
-    global $typenow;
-    if ($typenow === "page") {
-        // Replace "site-settings" with the slug of your site settings page.
-        $settings_page = get_page_by_path("site-settings", NULL, "page")->ID;
-        $query->set('post__not_in', array($settings_page));
-    }
-    return;
+    $path = get_stylesheet_directory() . '/acf-field';
+    return $path;
 }
-
-add_action('pre_get_posts', 'hide_settings_page');
-
-
-// Add the page to admin menu
-function add_site_settings_to_menu()
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+function my_acf_json_load_point($paths)
 {
-    add_menu_page('Site Settings', 'Site Setttings', 'manage_options', 'post.php?post=' . get_page_by_path("site-settings", NULL, "page")->ID . '&action=edit', '', 'dashicons-admin-tools', 999);
-}
-add_action('admin_menu', 'add_site_settings_to_menu');
-
-// Change the active menu item
-// add_filter('parent_file', 'higlight_custom_settings_page');
-
-// function higlight_custom_settings_page($file)
-// {
-//     global $parent_file;
-//     global $pagenow;
-//     global $typenow, $self;
-
-//     $settings_page = get_page_by_path("site-settings", NULL, "page")->ID;
-
-//     $post = (int)$_GET["post"];
-//     if ($pagenow === "post.php" && $post === $settings_page) {
-//         $file = "post.php?post=$settings_page&action=edit";
-//     }
-//     return $file;
-// }
-function edit_site_settings_title()
-{
-    global $post, $title, $action, $current_screen;
-    if (isset($current_screen->post_type) && $current_screen->post_type === 'page' && $action == 'edit' && $post->post_name === "site-settings") {
-        $title = $post->post_title . ' - ' . get_bloginfo('name');
-    }
-    return $title;
-}
-
-add_action('admin_title', 'edit_site_settings_title');
-
-function op($slug) // Fake string options to op('site-settings) in get_field method
-{
-    $page_url_id = get_page_by_path($slug);
-    return $page_url_id->ID;
+    // remove original path (optional)
+    unset($paths[0]);
+    $paths[] = get_stylesheet_directory() . '/acf-field';
+    return $paths;
 }
 
 /**
- * End fake site setting
+ * Saves post type and taxonomy data to JSON files in the theme directory.
+ *
+ * @param array $data Array of post type data that was just saved.
  */
+
+function pluginize_local_cptui_data($data = array())
+{
+    $theme_dir = get_stylesheet_directory();
+    // Create our directory if it doesn't exist.
+    if (!is_dir($theme_dir .= '/cptui_data')) {
+        mkdir($theme_dir, 0755);
+    }
+
+    if (array_key_exists('cpt_custom_post_type', $data)) {
+        // Fetch all of our post types and encode into JSON.
+        $cptui_post_types = get_option('cptui_post_types', array());
+        $content = json_encode($cptui_post_types);
+        // Save the encoded JSON to a primary file holding all of them.
+        file_put_contents($theme_dir . '/cptui_post_type_data.json', $content);
+    }
+
+    if (array_key_exists('cpt_custom_tax', $data)) {
+        // Fetch all of our taxonomies and encode into JSON.
+        $cptui_taxonomies = get_option('cptui_taxonomies', array());
+        $content = json_encode($cptui_taxonomies);
+        // Save the encoded JSON to a primary file holding all of them.
+        file_put_contents($theme_dir . '/cptui_taxonomy_data.json', $content);
+    }
+}
+add_action('cptui_after_update_post_type', 'pluginize_local_cptui_data');
+add_action('cptui_after_update_taxonomy', 'pluginize_local_cptui_data');
+
 
 
 // Remove margin top 32px of wordpress admin bar
