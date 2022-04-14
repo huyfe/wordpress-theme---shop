@@ -26,7 +26,7 @@ function huydev_acf_init_block_types()
             'name'              => 'HeroSection',
             'title'             => __('Hero Section'),
             'description'       => __('A custom Hero Section block.'),
-            'render_template'   => 'template-parts/blocks/heroSection.php',
+            'render_template'   => 'blocks/heroSection.php',
             'icon'              => 'admin-customizer',
             'mode'              => 'auto', // auto, preview, edit
         ));
@@ -34,7 +34,7 @@ function huydev_acf_init_block_types()
             'name'              => 'BlockSample',
             'title'             => __('Block Sample'),
             'description'       => __('A custom block sample.'),
-            'render_template'   => 'template-parts/blocks/blockSample.php',
+            'render_template'   => 'blocks/blockSample.php',
             'icon'              => 'admin-customizer',
             'mode'              => 'auto', // auto, preview, edit
         ));
