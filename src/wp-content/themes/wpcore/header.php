@@ -14,13 +14,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <?php
-        $title = get_field('general_title', op('site-settings'));
-        $logo = get_field('general_logo', op('site-settings'));
-        $size = 'full';
-        echo wp_get_attachment_image($logo, $size, '', array('class' => 'img-fluid header-logo'));
-        ?>
-        <h1 class="text-center ml-3 font-weight-bold">Header <?php echo $title; ?></h1>
+        <h1>Header <i class="fa-solid fa-user"></i>
+          <i class="fa-brands fa-github-square"></i>
+          <i class="fa-regular fa-arrow-down"></i>
+        </h1>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
