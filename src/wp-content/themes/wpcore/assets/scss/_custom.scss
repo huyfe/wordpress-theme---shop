@@ -39,3 +39,7 @@ p {
 .text-white {
     color: $white;
 }
+
+main {
+    min-height: calc(100vh - 97.6px - 200px);
+}

@@ -1,12 +1,24 @@
+/*
+* General
+*/
 @import "reset.scss";
 @import "font.scss";
 @import "_variables.scss";
-@import "header.scss";
-@import "footer.scss";
-@import "templates/landing-page.scss";
 @import "custom.scss";
 @import "button.scss";
 
-main {
-    min-height: calc(100vh - 97.6px - 200px);
-}
+/*
+* For Header and Footer
+*/
+@import "header.scss";
+@import "footer.scss";
+
+/*
+* For The Blocks
+*/
+@import "blocks/blockSample";
+
+/*
+* For The Pages
+*/
+@import "templates/landing-page.scss";

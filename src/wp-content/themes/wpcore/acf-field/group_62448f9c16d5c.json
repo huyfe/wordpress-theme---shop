@@ -121,9 +121,9 @@
     "location": [
         [
             {
-                "param": "page",
+                "param": "options_page",
                 "operator": "==",
-                "value": "22"
+                "value": "acf-options-site-settings"
             }
         ]
     ],
@@ -146,6 +146,5 @@
     ],
     "active": true,
     "description": "",
-    "show_in_rest": 0,
-    "modified": 1648670068
+    "modified": 1649951827
 }
