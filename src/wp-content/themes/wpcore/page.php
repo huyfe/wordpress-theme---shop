@@ -4,7 +4,7 @@ get_header();
 <main class="template-default-page">
     <section class="page-content">
         <div class="info-top">
-            <h1><?php echo get_the_title(); ?></h1>
+            <h1 class="text-center"><?php echo get_the_title(); ?></h1>
         </div>
         <div class="container">
             <div class="post-content wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.9s">
